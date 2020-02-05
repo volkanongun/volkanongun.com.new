@@ -30,111 +30,10 @@ var Key = {
 };
 
 
-var imageMap = [
-    
-    'images/projects/indie/1.png',
-    'images/projects/indie/2.png',
-
-    'images/projects/melo/1.png',
-    'images/projects/melo/2.png',
-    'images/projects/melo/3.png',
-
-    'images/projects/akbank/1.jpg',
-    'images/projects/akbank/2.jpg',
-    'images/projects/akbank/3.jpg',
-
-    'images/projects/loreal/skin/1.png',
-    'images/projects/loreal/skin/2.png',
-    'images/projects/loreal/skin/3.png',
-    'images/projects/loreal/skin/4.png',
-
-    'images/projects/koding/activity.png',
-    'images/projects/koding/codeview.png',
-    'images/projects/koding/invites.png',
-    'images/projects/koding/members.png',
-    'images/projects/koding/settings.png',
-
-    'images/projects/kinder/1.png',
-    'images/projects/kinder/2.png',
-    'images/projects/kinder/3.png',
-    'images/projects/kinder/4.png',
-    'images/projects/kinder/5.png',
-    'images/projects/kinder/6.png',
-
-    'images/projects/istinyepark/1.png',
-    'images/projects/istinyepark/2.png',
-    'images/projects/istinyepark/3.png',
-
-    'images/projects/nescafe/1.png',
-    'images/projects/nescafe/2.png',
-    'images/projects/nescafe/3.png',
-    'images/projects/nescafe/4.jpg',
-
-    'images/projects/macfit/ipad/1.png',
-    'images/projects/macfit/ipad/2.png',
-    'images/projects/macfit/ipad/3.png',
-
-    'images/projects/macfit/iphone/1.png',
-    'images/projects/macfit/iphone/2.png',
-
-    'images/projects/macfit/web/1.png',
-    'images/projects/macfit/web/2.png',
-    'images/projects/macfit/web/3.png',
-    'images/projects/macfit/web/4.png',
-
-    'images/projects/waveofdemocracy/1.png',
-    'images/projects/waveofdemocracy/2.png',
-    'images/projects/waveofdemocracy/3.png',
-
-    'images/projects/factorytrouble/factorytrouble1.png',
-    'images/projects/factorytrouble/factorytrouble2.png',
-    'images/projects/factorytrouble/factorytrouble3.png'
-];
 
 $('.preloader').css({
     'padding-top' : document.body.clientHeight / 4
 }).animateCSS('fadeIn');
-
-var loader = {
-    loaded: true,
-    loadedCount: 0, // Assets that have been loaded so far
-    totalCount: 0, // Total number of assets that need to be loaded
-    percentage : 0,
-
-    loadImage: function(url) {
-        this.totalCount++;
-        this.loaded = false;
-        var image = new Image();
-        image.src = url;
-        $(image).load(loader.itemLoaded);
-        return image;
-    },
-
-    printimages : function(percentage){
-        $('#percentage').html(percentage);
-    },
-
-    itemLoaded: function() {
-        loader.loadedCount++;
-
-        //$('#loadingmessage').html('Loaded ' + loader.loadedCount + ' of ' + loader.totalCount);
-        //console.log('Loaded ' + loader.loadedCount + ' of ' + loader.totalCount);
-
-        loader.percentage = (loader.loadedCount * 100 / imageMap.length).toFixed(0);
-        loader.printimages(loader.percentage);
-
-        if (loader.loadedCount === loader.totalCount) {
-            loader.loaded = true;
-
-            $('.preloader').removeClass('fadeIn').animateCSS('fadeOut', function(){
-                $(this).remove();
-                console.log("faded out");
-            });
-
-            $(document).trigger('preload:complete');
-        }
-    }
-}
 
 
 var container = $('#st-container');
@@ -731,10 +630,6 @@ WEBAPP.util.extend(WEBAPP, WEBAPP.Observer);
 //   / /  / / ___ |_/ // /|  /  
 //  /_/  /_/_/  |_/___/_/ |_/   
 //
-
-for(var i=0; i < imageMap.length; i++){
-    var imege = loader.loadImage(imageMap[i]);
-}
 
 // debug ready function
 $(document).ready(function() {
