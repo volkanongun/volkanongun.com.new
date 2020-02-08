@@ -193,7 +193,7 @@ WEBAPP = {
         });
 
         $('nav .contact').on('click', function(){
-            $(".main").moveTo(5);
+            $(".main").moveTo(4);
             WEBAPP.fireEvent('closeMenu', _this.closeMenu());
         });
 
@@ -283,7 +283,7 @@ WEBAPP = {
         });
 
         $('.contactme').on('click', function(){
-            $("#main").moveTo(5);
+            $("#main").moveTo(4);
         });
 
 
