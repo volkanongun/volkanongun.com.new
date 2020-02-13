@@ -17,7 +17,7 @@
 @import "sass-bootstrap/lib/_mixins";
 @import "sass-bootstrap/lib/_normalize";
 @import "sass-bootstrap/lib/_print";
-@import "sass-bootstrap/lib/_glyphicons";
+
 
 @import "animate"; 
 
@@ -388,7 +388,11 @@ svg#logo {
         }
     }
 
-    svg {width: 100px;margin: 0 40px 0 0px;}
+    svg {
+        width: 100px;
+        margin: 0 40px 0 0px;
+        height: 100px;
+    }
 }
 
 
@@ -881,7 +885,7 @@ body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html { 
 
 
 
-@media screen and (min-width: 375px){
+@media screen and (max-width: 375px){
 
     .aboutme {
 
@@ -889,6 +893,18 @@ body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html { 
             font-size: 115%;
             width: auto;
             height: auto;
+        }
+    }
+
+    .skillset{
+        .jumbotron{
+            width: auto;
+            height: auto;   
+        }
+
+        svg {
+            width: 64px;
+            height: 76px;
         }
     }
 }
